@@ -1,12 +1,13 @@
 {
   "title": "Anthony Akpan | Software Engineer Portfolio",
   "description": "Software projects, apps, and writing by Anthony Akpan. Explore his work and download tools for local file transfers and managing Codex accounts.",
-  "image": "https://kromate.dev/og/apps.png",
+  "image": "https://firebasestorage.googleapis.com/v0/b/goalmatics-prod.firebasestorage.app/o/sites%2F12ce3127-ff9d-45b4-967e-0acf4d68f71d%2Fseo-image-1773614599966?alt=media&token=b6ff75d7-de96-48d8-aaf1-29887b4351a6",
   "robots": "index,follow,max-image-preview:large",
   "pages": {
     "/": {
       "title": "Anthony Akpan | Software Engineer Portfolio",
-      "description": "Software projects, apps, and writing by Anthony Akpan. Explore his work and download tools built for everyday use."
+      "description": "Software projects, apps, and writing by Anthony Akpan. Explore his work and download tools built for everyday use.",
+      "image": "https://firebasestorage.googleapis.com/v0/b/goalmatics-prod.firebasestorage.app/o/sites%2F12ce3127-ff9d-45b4-967e-0acf4d68f71d%2Fseo-image-1773614599966?alt=media&token=b6ff75d7-de96-48d8-aaf1-29887b4351a6"
     },
     "/apps": {
       "title": "Apps by Anthony Akpan | macOS Utilities",

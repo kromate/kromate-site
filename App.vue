@@ -34,9 +34,10 @@ function updateMeta(attribute, key, content) {
 
 watch(() => route.path, (path) => {
   if (typeof document === 'undefined') return
-  const metadata = pageSeo[path.replace(/\/$/, '') || '/']
+  const normalizedPath = path.replace(/\/$/, '') || '/'
+  const metadata = pageSeo[normalizedPath]
   if (!metadata) return
-  const canonicalUrl = new URL(path, 'https://kromate.dev').href
+  const canonicalUrl = new URL(normalizedPath, 'https://kromate.dev').href
   document.title = metadata.title
   updateMeta('name', 'description', metadata.description)
   for (const [key, value] of Object.entries({ title: metadata.title, description: metadata.description, image: metadata.image, url: canonicalUrl })) {
