@@ -2,7 +2,7 @@
 	<div class="fixed inset-0 h-screen w-screen z-[100]" v-if="show">
 		<div class="center h-screen w-screen bg-[#211e25] logo-container !bg-black flex items-center justify-center">
 			<div class="relative flex items-center justify-center text-white pos text-7xl">
-				<img src="https://firebasestorage.googleapis.com/v0/b/goalmatics.firebasestorage.app/o/sites%2F12ce3127-ff9d-45b4-967e-0acf4d68f71d%2Fassets%2Fborder.svg?alt=media&token=151fcde6-d307-49ad-8191-2382b0aa67af" alt="border" class="logo-border absolute w-40 rotate-45" />
+				<img src="/images/border.svg" alt="border" class="logo-border absolute w-40 rotate-45" />
 				<span class="p-10 font-semibold chakra z-10">K</span>
 			</div>
 		</div>
