@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-	import { ref, onMounted } from "vue";
+	import { ref, onMounted, nextTick } from "vue";
 import { scrollControl } from "../composables/controls.js";
 
 const show = ref(true);
@@ -31,6 +31,10 @@ onMounted(() => {
     setTimeout(() => {
 		show.value = false;
 		enableScroll();
+        nextTick(() => {
+            const section = document.getElementById(window.location.hash.slice(1));
+            section?.scrollIntoView({ behavior: "instant" });
+        });
 	}, 2500);
 });
 </script>
