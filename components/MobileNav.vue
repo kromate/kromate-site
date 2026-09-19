@@ -37,7 +37,7 @@
       <div v-if="showMenu" id="mobile-menu" class="navMenu fixed inset-0 w-full h-full bg-[#211e25] z-30 flex flex-col items-center justify-center p-4">
         <ul class="flex flex-col items-center gap-8 pt-20">
           <li v-for="(link, index) in links" :key="index" class="menu-link-wrapper" :style="{ animationDelay: (0.1 * index) + 's' }">
-            <a :href="link.href" class="menu-link chakra" @click.prevent="scrollToSection(link.href.replace('#', ''))">{{ link.name }}</a>
+            <a :href="link.href" class="menu-link chakra" @click="closeMenu">{{ link.name }}</a>
           </li>
           <li class="menu-link-wrapper" :style="{ animationDelay: (0.1 * links.length) + 's' }">
             <a href="https://blog.kromate.dev" target="_blank" class="menu-link chakra" @click="closeMenu">Blog</a>
@@ -69,11 +69,11 @@ import { scrollControl, topBarScroll } from '../composables/controls'
 const showMenu = ref(false)
 
 const links = [
-  { name: 'About', href: '#about' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Works', href: '#works' },
-  { name: 'Apps', href: '#apps' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'About', href: '/#about' },
+  { name: 'Experience', href: '/#experience' },
+  { name: 'Works', href: '/#works' },
+  { name: 'Apps', href: '/apps' },
+  { name: 'Contact', href: '/#contact' },
 ]
 
 const socials = [
@@ -121,17 +121,6 @@ const toggleMenu = () => {
 const closeMenu = () => {
   showMenu.value = false
   scrollControl().enableScroll()
-}
-
-const scrollToSection = (id) => {
-  const element = document.getElementById(id)
-  if (element) {
-    closeMenu()
-    // Small delay to allow menu to close before scrolling
-    setTimeout(() => {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }, 300)
-  }
 }
 
 onMounted(() => {

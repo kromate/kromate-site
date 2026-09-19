@@ -1,6 +1,6 @@
 <template>
   <div class="min-h-screen bg-[#211e25] text-[#8892b0] font-roboto selection:bg-[#ff8c001e] selection:text-[#ccd6f6]">
-    <LoadingScreen />
+    <LoadingScreen v-if="$route.path === '/'" />
     <MobileNav />
     <LeftSidebar />
     <RightSidebar />

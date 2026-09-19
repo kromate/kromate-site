@@ -5,19 +5,19 @@
   >
     <ul class="flex flex-col gap-6 pt-4 links items-center">
       <li class="nav-link">
-        <a href="#about" @click.prevent="scrollToSection('about')" class="hover:text-[#ff8c00] transition-all duration-300">About</a>
+        <a href="/#about" class="hover:text-[#ff8c00] transition-all duration-300">About</a>
       </li>
       <li class="nav-link">
-        <a href="#experience" @click.prevent="scrollToSection('experience')" class="hover:text-[#ff8c00] transition-all duration-300">Experience</a>
+        <a href="/#experience" class="hover:text-[#ff8c00] transition-all duration-300">Experience</a>
       </li>
       <li class="nav-link">
-        <a href="#works" @click.prevent="scrollToSection('works')" class="hover:text-[#ff8c00] transition-all duration-300">Work</a>
+        <a href="/#works" class="hover:text-[#ff8c00] transition-all duration-300">Work</a>
       </li>
       <li class="nav-link">
-        <a href="#apps" @click.prevent="scrollToSection('apps')" class="hover:text-[#ff8c00] transition-all duration-300">Apps</a>
+        <a href="/apps" class="hover:text-[#ff8c00] transition-all duration-300">Apps</a>
       </li>
       <li class="nav-link">
-        <a href="#contact" @click.prevent="scrollToSection('contact')" class="hover:text-[#ff8c00] transition-all duration-300">Contact</a>
+        <a href="/#contact" class="hover:text-[#ff8c00] transition-all duration-300">Contact</a>
       </li>
       <li class="nav-link">
         <a href="https://blog.kromate.dev" target="_blank" class="hover:text-[#ff8c00] transition-all duration-300 font-bold">Blog</a>
@@ -31,23 +31,6 @@
     </div>
   </nav>
 </template>
-
-<script setup>
-import { onMounted } from 'vue'
-import { scrollpsy } from '../composables/controls'
-
-const scrollToSection = (id) => {
-  const element = document.getElementById(id)
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' })
-  }
-}
-
-onMounted(() => {
-  // Initialize scrollspy for navigation links
-  scrollpsy()
-})
-</script>
 
 <style scoped>
 .animate-fade-in-slide-left {
