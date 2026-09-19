@@ -1,32 +1,32 @@
 # Anthony Akpan | Software Engineer Portfolio
 
-This repository is the source authority for a Goalmatic project.
+The public portfolio site for Anthony Akpan: software projects, native utilities, writing, and contact details.
 
-## Run locally
+## Local development
+
+Use Node.js 20.19 or later and Yarn 1.22.
 
 ```bash
 yarn install --frozen-lockfile
 yarn dev
 ```
 
-## Connect the local App to Goalmatic
-
-Create a Web Key in **Site Builder > App Store > Local development**, then copy the checked-in example and set the public key:
+Other available commands:
 
 ```bash
-cp .env.example .env.local
+yarn build
+yarn preview
 ```
 
-```env
-VITE_GOALMATIC_API_KEY=gmw_dev_...
-```
+## Project links
 
-Keep using `yarn dev`. A development key uses development App resources and the signed-in workspace's real Goalmatic credits. A production-local key uses the current Store release permissions, production data, connected accounts, provider actions, and real credits. Site Builder restricts production-local keys to the exact loopback origins you register.
+- [WiFi Drop](https://github.com/kromate/wifi-drop) moves files between devices on the same Wi-Fi network.
+- [Codex Account Switcher](https://github.com/kromate/codex-account-switcher) is a native macOS menu bar utility for saved Codex accounts.
+- [Kromate on GitHub](https://github.com/kromate)
+- [Kromate blog](https://blog.kromate.dev)
 
-The Web Key is a public App identifier, not an account credential. Goalmatic sign-in, App installation permissions, server-side resource bindings, and credit policy authorize protected requests. Never put a private `gm_` account key or provider secret in a `VITE_*` variable.
+## Git workflow
 
-With no Web Key, the App starts in a visibly labeled offline preview. If a configured key is invalid or its origin is not allowed, startup fails visibly and never falls back to sample data.
+`preview` is the active integration branch. Keep changes focused, review the diff before committing, and open pull requests against `preview`. Publish from [Site Builder](https://goalmatic.site/projects/12ce3127-ff9d-45b4-967e-0acf4d68f71d) after reviewing the hosted draft. Publishing promotes the reviewed source to `main` and deploys it to [kromate.dev](https://kromate.dev). A push to `preview` only updates the draft.
 
-The default `preview` branch is the editable integration branch. Create feature branches from `preview`, select them in Site Builder for an isolated hosted working copy, and target `preview` with pull requests. The `main` branch contains read-only reviewed release candidates. A Git push never publishes the deployed App.
-
-Read [CONTRIBUTING.md](./CONTRIBUTING.md) before submitting a change.
+Do not commit credentials, `node_modules`, or generated build output. Read [CONTRIBUTING.md](./CONTRIBUTING.md) before submitting a change.

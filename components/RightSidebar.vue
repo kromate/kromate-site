@@ -14,6 +14,9 @@
         <a href="#works" @click.prevent="scrollToSection('works')" class="hover:text-[#ff8c00] transition-all duration-300">Work</a>
       </li>
       <li class="nav-link">
+        <a href="#apps" @click.prevent="scrollToSection('apps')" class="hover:text-[#ff8c00] transition-all duration-300">Apps</a>
+      </li>
+      <li class="nav-link">
         <a href="#contact" @click.prevent="scrollToSection('contact')" class="hover:text-[#ff8c00] transition-all duration-300">Contact</a>
       </li>
       <li class="nav-link">
@@ -71,6 +74,11 @@ onMounted(() => {
   font-family: 'Chakra Petch', sans-serif;
   font-size: 14px;
   letter-spacing: 0.1em;
+}
+
+.nav-link a:focus-visible {
+  outline: 2px solid #ccd6f6;
+  outline-offset: 4px;
 }
 
 .mail-link {

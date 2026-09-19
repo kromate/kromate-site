@@ -38,8 +38,10 @@
           <div class="absolute inset-0 border-2 border-[#ff8c00] rounded-md translate-x-4 translate-y-4 transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2 -z-10"></div>
           <img
             class="img w-[270px] rounded-md filter grayscale hover:grayscale-0 transition-all duration-300 relative z-10 bg-[#211e25]"
-            src="https://firebasestorage.googleapis.com/v0/b/goalmatics.firebasestorage.app/o/sites%2F12ce3127-ff9d-45b4-967e-0acf4d68f71d%2Fassets%2Fimage%2068.png?alt=media&token=6bf3e3d5-eade-4259-8a1f-01bed9c341d2"
-            alt="Headshot"
+            src="/images/anthony-akpan.png"
+            alt="Anthony Akpan"
+            width="512"
+            height="512"
           />
         </div>
       
