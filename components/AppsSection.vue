@@ -68,7 +68,7 @@ const apps = [
     description: 'Move large videos and files between your phone and laptop on the same Wi-Fi. Open the transfer page in your phone browser and send files directly across your local network.',
     requirements: ['Apple Silicon Mac', 'macOS', 'Phone and laptop on the same Wi-Fi'],
     downloadLabel: 'Download for Apple Silicon macOS',
-    downloadUrl: 'https://github.com/kromate/wifi-drop/releases/latest',
+    downloadUrl: 'https://github.com/kromate/wifi-drop/releases/latest/download/WiFi-Drop-macOS-Apple-Silicon.zip',
     repositoryUrl: 'https://github.com/kromate/wifi-drop',
     installUrl: 'https://github.com/kromate/wifi-drop#readme',
     issuesUrl: 'https://github.com/kromate/wifi-drop/issues'
@@ -80,7 +80,7 @@ const apps = [
     description: 'An independent macOS menu bar utility for switching saved Codex accounts and checking each account’s plan, remaining usage, and reset times.',
     requirements: ['Apple Silicon Mac with macOS 14 or later', 'Codex installed', 'Your own Codex accounts'],
     downloadLabel: 'Download for Apple Silicon macOS',
-    downloadUrl: 'https://github.com/kromate/codex-account-switcher/releases/latest',
+    downloadUrl: 'https://github.com/kromate/codex-account-switcher/releases/latest/download/Codex-Account-Switcher-macOS-Apple-Silicon.zip',
     repositoryUrl: 'https://github.com/kromate/codex-account-switcher',
     installUrl: 'https://github.com/kromate/codex-account-switcher#readme',
     issuesUrl: 'https://github.com/kromate/codex-account-switcher/issues'
