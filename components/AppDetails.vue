@@ -194,9 +194,11 @@ defineProps({
 }
 
 .detail-section {
+  min-height: 0;
+  max-width: none;
+  padding: 2rem 0 0;
   border-top: 1px solid rgba(136, 146, 176, 0.3);
-  margin-top: 4rem;
-  padding-top: 2rem;
+  margin-top: 3rem;
 }
 
 .detail-section h2 {
