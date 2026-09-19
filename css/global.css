@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@100;300;400;700;900&display=swap");
+
+:root {
+  --white: #ccd6f6;
+  --orange: #ff8c00;
+  --badge: #2f293ae8;
+  --secondary: #8892b0;
+  --primary: #211e25;
+  --light_orange: #ff8c001e;
+  
+  --fz-xxs: 12px;
+  --fz-xs: 13px;
+  --fz-sm: 14px;
+  --fz-md: 16px;
+  --fz-lg: 18px;
+  --fz-xl: 20px;
+  --fz-xxl: 22px;
+  --fz-heading: 32px;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding: 4rem;
+}
+
+body {
+  background-color: var(--primary);
+  color: var(--secondary);
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .chakra {
+  font-family: 'Chakra Petch', sans-serif;
+}
+
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: #8892b0;
+  /* Optional: just make scrollbar invisible */
+}
+
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #00ab4473;
+  opacity: 0;
+  border-radius: 40px;
+}
+section {
+  color: var(--white);
+  margin: 2rem auto;
+  max-width: 1000px;
+  min-height: 100vh;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  section {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.big-btn {
+  border: 1px solid var(--orange);
+  color: var(--orange);
+  border-radius: 4px;
+  padding: 12px 40px;
+  font-size: 16px;
+  position: relative;
+  background-color: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  text-decoration: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.big-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 100%;
+  background-color: var(--light_orange);
+  transition: right 0.5s ease-out;
+  z-index: -1;
+}
+
+.big-btn:hover::before {
+  right: 0;
+}
+
+.big-btn:active, .big-btn:focus {
+  background-color: hsla(0, 0%, 100%, 0.188);
+  outline: none;
+}
