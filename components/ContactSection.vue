@@ -1,6 +1,6 @@
 <template>
   <section id="contact" class="flex flex-col items-center justify-center min-h-screen text-center" ref="contactRef" :class="{ 'visible': isVisible }">
-    <SectionHeading num="04." title="Contact" class="mb-4" />
+    <SectionHeading num="05." title="Contact" class="mb-4" />
     
     <div class="content-fade-up flex flex-col items-center mt-[10vh]">
       <p class="text-[#8892b0] mb-5 text-xl">That's all folks</p>
