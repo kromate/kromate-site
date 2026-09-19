@@ -36,3 +36,5 @@ Do not commit credentials, `node_modules`, or generated build output. Read [CONT
 The directory is `/apps`. Detail pages use stable app IDs: `/app/wifi-drop` and `/app/codex-account-switcher`. Their page files live under `pages/App/`; `composables/apps.js` holds the shared release data.
 
 `goalmatic.seo.json` defines titles, descriptions, and 1200 × 630 social images for each route. Site Builder renders canonical URLs, Open Graph, Twitter cards, and WebPage structured data in the initial response. App pages include SoftwareApplication microdata without invented ratings. Site Builder generates the production sitemap and robots file from published routes.
+
+After changing `goalmatic.seo.json`, run `node scripts/sync-page-seo.mjs` to keep in-browser navigation metadata synchronized with the server metadata.
