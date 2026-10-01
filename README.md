@@ -38,3 +38,9 @@ The directory is `/apps`. Detail pages use stable app IDs: `/app/wifi-drop` and 
 `goalmatic.seo.json` defines titles, descriptions, and 1200 × 630 social images for each route. Site Builder renders canonical URLs, Open Graph, Twitter cards, and WebPage structured data in the initial response. App pages include SoftwareApplication microdata without invented ratings. Site Builder generates the production sitemap and robots file from published routes.
 
 After changing `goalmatic.seo.json`, run `node scripts/sync-page-seo.mjs` to keep in-browser navigation metadata synchronized with the server metadata.
+
+## Goalmatic startup reference
+
+`/startup` renders the public answers in `composables/startupReference.js`. Edit that source, then run `node scripts/sync-startup-reference.mjs` to update the matching Markdown and JSON. Run the same command with `--check` before publishing to verify that all formats agree. Keep answer IDs stable so shared question links continue to work.
+
+The page links to these files on the public repository's `main` branch; Site Builder's Vue runtime does not serve Markdown or JSON as public assets. Publishing promotes the reviewed files to `main`. Keep traction, revenue, fundraising terms, legal records and the private pitch pack out of all public formats.
