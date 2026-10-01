@@ -547,7 +547,7 @@ a:focus-visible { outline: 2px solid var(--text); outline-offset: 4px; }
 }
 
 @media (max-width: 767px) {
-  .page-header { top: 5.5rem; margin-top: 5.5rem; }
+  .page-header { top: var(--mobile-nav-height); margin-top: var(--mobile-nav-height); }
   .startup-page section { scroll-margin-top: 13rem; }
 }
 

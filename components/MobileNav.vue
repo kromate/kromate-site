@@ -130,6 +130,9 @@ onMounted(() => {
 </script>
 
 <style scoped>
+:global(:root) { --mobile-nav-height: 5rem; }
+#header { height: var(--mobile-nav-height); }
+
 .menu-btn {
   background: transparent;
   border: 0;
