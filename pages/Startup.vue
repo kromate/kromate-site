@@ -123,6 +123,26 @@ const mobileIndex = ref(null)
 let hashScrollTimer
 let copyTimer
 let disposed = false
+let entryObserver
+let entryDeadline
+
+function stopEntryAlignment() {
+  entryObserver?.disconnect()
+  clearTimeout(entryDeadline)
+  for (const event of ['wheel', 'touchstart', 'pointerdown', 'keydown']) {
+    window.removeEventListener(event, stopEntryAlignment)
+  }
+}
+
+function alignEntryAfterLayout() {
+  if (!route.hash) return
+  entryObserver = new ResizeObserver(alignHashSection)
+  entryObserver.observe(document.querySelector('.startup-reference'))
+  entryDeadline = setTimeout(stopEntryAlignment, 10000)
+  for (const event of ['wheel', 'touchstart', 'pointerdown', 'keydown']) {
+    window.addEventListener(event, stopEntryAlignment, { passive: true })
+  }
+}
 
 function normalize(text) { return text.toLowerCase().replace(/\s+/g, ' ').trim() }
 const visibleSections = computed(() => {
@@ -174,17 +194,19 @@ async function copyText(text, id) {
 }
 
 watch(() => route.hash, async () => {
+  stopEntryAlignment()
   query.value = ''
   await nextTick()
   alignHashSection()
 })
 onMounted(async () => {
   if (!route.hash) window.scrollTo({ top: 0, behavior: 'instant' })
+  else alignEntryAfterLayout()
   await nextTick()
   await document.fonts.ready
   if (!disposed && route.hash) alignHashSection()
 })
-onBeforeUnmount(() => { disposed = true; clearTimeout(hashScrollTimer); clearTimeout(copyTimer) })
+onBeforeUnmount(() => { disposed = true; stopEntryAlignment(); clearTimeout(hashScrollTimer); clearTimeout(copyTimer) })
 </script>
 
 <style scoped>
