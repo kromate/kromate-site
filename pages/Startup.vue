@@ -117,7 +117,7 @@
 
       <section id="founder" class="content-section founder-section" aria-labelledby="founder-title">
         <div class="founder-portrait-wrap">
-          <img src="/images/anthony-akpan.png" alt="Anthony Akpan, founder of Goalmatic" class="founder-portrait">
+          <img src="https://kromate.dev/images/anthony-akpan.png" alt="Anthony Akpan, founder of Goalmatic" class="founder-portrait">
           <p class="portrait-caption"><span>Anthony Akpan</span> Solo founder, Lagos</p>
         </div>
         <div class="founder-copy">
