@@ -17,6 +17,9 @@
         <a href="/apps" class="hover:text-[#ff8c00] transition-all duration-300">Apps</a>
       </li>
       <li class="nav-link">
+        <RouterLink to="/startup" class="hover:text-[#ff8c00] transition-all duration-300">Startup</RouterLink>
+      </li>
+      <li class="nav-link">
         <a href="/#contact" class="hover:text-[#ff8c00] transition-all duration-300">Contact</a>
       </li>
       <li class="nav-link">
