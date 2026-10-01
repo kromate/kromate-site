@@ -20,8 +20,7 @@
       <p class="intro-note">A reference for questions, launches and applications. Read an answer, copy it, or send a link to the exact question.</p>
       <details class="plain-file-urls">
         <summary>Plain-file URLs for AI agents</summary>
-        <p>Markdown: https://raw.githubusercontent.com/kromate/kromate-site/main/public/startup/goalmatic.md</p>
-        <p>JSON: https://raw.githubusercontent.com/kromate/kromate-site/main/public/startup/goalmatic.json</p>
+        <p>Markdown: https://raw.githubusercontent.com/kromate/kromate-site/main/public/startup/goalmatic.md<br>JSON: https://raw.githubusercontent.com/kromate/kromate-site/main/public/startup/goalmatic.json</p>
       </details>
       <div class="intro-actions">
         <button type="button" class="primary-button" @click="copyText(startupReference.summary, 'short-description')">{{ copied === 'short-description' ? 'Copied' : 'Copy short description' }}</button>
@@ -199,7 +198,7 @@ button, input, textarea { font: inherit; }
 button { cursor: pointer; }
 .skip-link { position: fixed; top: .75rem; left: 50%; z-index: 100; transform: translate(-50%, -180%); padding: .8rem 1rem; border-radius: 4px; background: var(--orange); color: #211e25; font-weight: 700; }
 .skip-link:focus { transform: translate(-50%, 0); }
-.reference-header { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; min-height: 5.5rem; padding: 1rem 0; border-bottom: 1px solid #ccd6f629; background: #211e25; }
+.reference-header { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; min-height: 5.5rem; padding: 1rem 0; border-bottom: 1px solid #ccd6f629; background: #211e25; }
 .brand { display: flex; align-items: center; gap: .7rem; color: var(--text); font-family: 'Chakra Petch', sans-serif; font-weight: 700; text-decoration: none; }
 .brand small { display: block; margin-top: .15rem; color: var(--muted); font-family: 'Roboto', sans-serif; font-size: .7rem; font-weight: 400; }
 .brand-mark { display: grid; place-items: center; flex: none; width: 2.4rem; height: 2.4rem; border-radius: .5rem; background: var(--orange); color: #211e25; font-size: 1.2rem; }
@@ -258,7 +257,8 @@ h3 { margin: 0; color: var(--text); font-size: 1.1rem; line-height: 1.45; }
 .empty-result { color: var(--muted); line-height: 1.7; }
 @media (max-width: 1000px) { .reference-layout { grid-template-columns: 9rem minmax(0, 1fr); gap: 1.6rem; } }
 @media (max-width: 767px) {
-  .reference-header { top: var(--mobile-nav-height); margin-top: var(--mobile-nav-height); min-height: 5rem; gap: 1rem; }
+  :global(body:has(.startup-reference):not(:has(#mobile-menu)) #header) { position: static; }
+  .reference-header { min-height: 5rem; gap: 1rem; }
   .header-links { gap: .8rem; font-size: .7rem; }
   .startup-reference [id] { scroll-margin-top: 12rem; }
   .reference-intro { padding: 2.5rem 0 !important; }
