@@ -112,7 +112,7 @@ const socials = [
 
 const toggleMenu = () => {
   if (!showMenu.value) {
-    showMenu.value = true
+    showMenu.value = true;
     scrollControl().disableScroll()
   } else {
     closeMenu()
@@ -120,7 +120,7 @@ const toggleMenu = () => {
 }
 
 const closeMenu = () => {
-  showMenu.value = false
+  showMenu.value = false;
   scrollControl().enableScroll()
 }
 
