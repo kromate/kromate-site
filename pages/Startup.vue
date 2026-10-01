@@ -1,17 +1,17 @@
 <template>
   <div class="startup-page">
-    <a class="skip-link" href="#startup-main">Skip to main content</a>
+    <a class="skip-link" href="#startup-main" @click.stop>Skip to main content</a>
 
     <header class="page-header" aria-label="Goalmatic introduction">
-      <a class="wordmark chakra" href="#top" aria-label="Goalmatic, back to top">
+      <a class="wordmark chakra" href="#top" aria-label="Goalmatic, back to top" @click.stop>
         <span class="wordmark-mark" aria-hidden="true">G</span>
         Goalmatic
       </a>
       <nav class="section-nav" aria-label="On this page">
-        <a href="#how-it-works">How it works</a>
-        <a href="#apps">Apps</a>
-        <a href="#founder">Founder</a>
-        <a href="#direction">Direction</a>
+        <a href="#how-it-works" @click.stop>How it works</a>
+        <a href="#apps" @click.stop>Apps</a>
+        <a href="#founder" @click.stop>Founder</a>
+        <a href="#direction" @click.stop>Direction</a>
       </nav>
     </header>
 
@@ -117,7 +117,7 @@
 
       <section id="founder" class="content-section founder-section" aria-labelledby="founder-title">
         <div class="founder-portrait-wrap">
-          <img src="/images/anthony-akpan.png" alt="Anthony Akpan, founder of Goalmatic" class="founder-portrait">
+          <img src="https://kromate.dev/images/anthony-akpan.png" alt="Anthony Akpan, founder of Goalmatic" class="founder-portrait">
           <p class="portrait-caption"><span>Anthony Akpan</span> Solo founder, Lagos</p>
         </div>
         <div class="founder-copy">
@@ -170,11 +170,30 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, onBeforeUnmount, watch } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+let hashScrollTimer
+
+function alignHashSection() {
+  clearTimeout(hashScrollTimer)
+  if (!route.hash) return
+  // The hosted router scrolls after 300ms without applying section offsets.
+  hashScrollTimer = setTimeout(() => {
+    const target = document.getElementById(route.hash.slice(1))
+    if (target) target.scrollIntoView({ behavior: 'instant', block: 'start' })
+  }, 400)
+}
+
+watch(() => route.hash, alignHashSection)
 
 onMounted(() => {
-  if (!window.location.hash) window.scrollTo({ top: 0, behavior: 'instant' })
+  if (route.hash) alignHashSection()
+  else window.scrollTo({ top: 0, behavior: 'instant' })
 })
+
+onBeforeUnmount(() => clearTimeout(hashScrollTimer))
 
 const apps = [
   {
@@ -239,6 +258,7 @@ const apps = [
 
 .startup-page * { box-sizing: border-box; }
 :global(body:has(.startup-page)) { overflow-x: clip; }
+#startup-main { scroll-margin-top: 5rem; }
 
 .startup-page section {
   width: 100%;
@@ -548,7 +568,7 @@ a:focus-visible { outline: 2px solid var(--text); outline-offset: 4px; }
 
 @media (max-width: 767px) {
   .page-header { top: var(--mobile-nav-height); margin-top: var(--mobile-nav-height); }
-  .startup-page section { scroll-margin-top: 13rem; }
+  .startup-page section, #startup-main { scroll-margin-top: 13rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
