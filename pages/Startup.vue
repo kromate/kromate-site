@@ -20,7 +20,8 @@
       <p class="intro-note">A reference for questions, launches and applications. Read an answer, copy it, or send a link to the exact question.</p>
       <details class="plain-file-urls">
         <summary>Plain-file URLs for AI agents</summary>
-        <p>Markdown: https://raw.githubusercontent.com/kromate/kromate-site/main/public/startup/goalmatic.md<br>JSON: https://raw.githubusercontent.com/kromate/kromate-site/main/public/startup/goalmatic.json</p>
+        <p>Markdown: https://raw.githubusercontent.com/kromate/kromate-site/main/public/startup/goalmatic.md
+JSON: https://raw.githubusercontent.com/kromate/kromate-site/main/public/startup/goalmatic.json</p>
       </details>
       <div class="intro-actions">
         <button type="button" class="primary-button" @click="copyText(startupReference.summary, 'short-description')">{{ copied === 'short-description' ? 'Copied' : 'Copy short description' }}</button>
@@ -210,7 +211,7 @@ h1 { margin: .9rem 0 1.3rem; font-size: clamp(2.6rem, 5vw, 4.5rem); line-height:
 .intro-note { max-width: 40rem; margin: 1.2rem 0 0; color: var(--muted); font-size: .95rem; line-height: 1.75; }
 .plain-file-urls { max-width: 43rem; margin-top: 1rem; color: var(--muted); font-size: .78rem; line-height: 1.7; }
 .plain-file-urls summary { cursor: pointer; min-height: 44px; display: list-item; padding: .7rem 0; }
-.plain-file-urls p { overflow-wrap: anywhere; user-select: text; }
+.plain-file-urls p { overflow-wrap: anywhere; user-select: text; white-space: pre-line; }
 .intro-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.3rem; margin-top: 1.7rem; }
 .primary-button { min-height: 44px; padding: .75rem 1rem; border: 1px solid var(--orange); border-radius: .35rem; background: var(--orange); color: #211e25; font-size: .88rem; font-weight: 700; }
 .updated { color: var(--muted); font-size: .72rem; }
