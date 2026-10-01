@@ -18,6 +18,11 @@
       <h1 id="reference-title">Goalmatic, in plain words.</h1>
       <p class="summary">{{ startupReference.summary }}</p>
       <p class="intro-note">A reference for questions, launches and applications. Read an answer, copy it, or send a link to the exact question.</p>
+      <details class="plain-file-urls">
+        <summary>Plain-file URLs for AI agents</summary>
+        <p>Markdown: https://raw.githubusercontent.com/kromate/kromate-site/main/public/startup/goalmatic.md</p>
+        <p>JSON: https://raw.githubusercontent.com/kromate/kromate-site/main/public/startup/goalmatic.json</p>
+      </details>
       <div class="intro-actions">
         <button type="button" class="primary-button" @click="copyText(startupReference.summary, 'short-description')">{{ copied === 'short-description' ? 'Copied' : 'Copy short description' }}</button>
         <span class="updated">Public reference · Updated {{ startupReference.updated }}</span>
@@ -117,6 +122,7 @@ const fallback = ref(null)
 const mobileIndex = ref(null)
 let hashScrollTimer
 let copyTimer
+let disposed = false
 
 function normalize(text) { return text.toLowerCase().replace(/\s+/g, ' ').trim() }
 const visibleSections = computed(() => {
@@ -172,11 +178,13 @@ watch(() => route.hash, async () => {
   await nextTick()
   alignHashSection()
 })
-onMounted(() => {
-  if (route.hash) alignHashSection()
-  else window.scrollTo({ top: 0, behavior: 'instant' })
+onMounted(async () => {
+  if (!route.hash) window.scrollTo({ top: 0, behavior: 'instant' })
+  await nextTick()
+  await document.fonts.ready
+  if (!disposed && route.hash) alignHashSection()
 })
-onBeforeUnmount(() => { clearTimeout(hashScrollTimer); clearTimeout(copyTimer) })
+onBeforeUnmount(() => { disposed = true; clearTimeout(hashScrollTimer); clearTimeout(copyTimer) })
 </script>
 
 <style scoped>
@@ -201,6 +209,9 @@ button { cursor: pointer; }
 h1 { margin: .9rem 0 1.3rem; font-size: clamp(2.6rem, 5vw, 4.5rem); line-height: 1.05; letter-spacing: -.04em; }
 .summary { max-width: 43rem; color: var(--text); font-size: clamp(1.1rem, 1.8vw, 1.35rem); line-height: 1.65; margin: 0; }
 .intro-note { max-width: 40rem; margin: 1.2rem 0 0; color: var(--muted); font-size: .95rem; line-height: 1.75; }
+.plain-file-urls { max-width: 43rem; margin-top: 1rem; color: var(--muted); font-size: .78rem; line-height: 1.7; }
+.plain-file-urls summary { cursor: pointer; min-height: 44px; display: list-item; padding: .7rem 0; }
+.plain-file-urls p { overflow-wrap: anywhere; user-select: text; }
 .intro-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.3rem; margin-top: 1.7rem; }
 .primary-button { min-height: 44px; padding: .75rem 1rem; border: 1px solid var(--orange); border-radius: .35rem; background: var(--orange); color: #211e25; font-size: .88rem; font-weight: 700; }
 .updated { color: var(--muted); font-size: .72rem; }
