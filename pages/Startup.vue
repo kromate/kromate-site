@@ -170,6 +170,12 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  if (!window.location.hash) window.scrollTo({ top: 0, behavior: 'instant' })
+})
+
 const apps = [
   {
     icon: 'B',
