@@ -73,6 +73,7 @@ const links = [
   { name: 'Experience', href: '/#experience' },
   { name: 'Works', href: '/#works' },
   { name: 'Apps', href: '/apps' },
+  { name: 'Startup', href: '/startup' },
   { name: 'Contact', href: '/#contact' },
 ]
 
@@ -129,6 +130,9 @@ onMounted(() => {
 </script>
 
 <style scoped>
+:global(:root) { --mobile-nav-height: 5rem; }
+#header { height: var(--mobile-nav-height); }
+
 .menu-btn {
   background: transparent;
   border: 0;
@@ -210,6 +214,13 @@ onMounted(() => {
   font-weight: 700;
   text-transform: uppercase;
   animation: hue-rotate 7.5s infinite linear;
+}
+
+@media (max-height: 900px) {
+  .navMenu { overflow-y: auto; justify-content: flex-start; }
+  .navMenu ul { gap: 1rem; }
+  .menu-link { font-size: 2rem; }
+  .menu-socials { margin-top: 2rem; padding-bottom: 2rem; }
 }
 
 @keyframes hue-rotate {
